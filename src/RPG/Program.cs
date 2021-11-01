@@ -33,16 +33,25 @@ namespace RPG_Assignment_1
             Console.ReadLine();
             Console.Clear();
 
-            Hero.AddNewArmor("Common cloth head armor", ArmorTypes.Cloth, 1, SlotTypes.Body, new PrimaryAttributes { Inteligence = 30, Dexterity = 30 });
+            Hero.AddNewArmor("Cloak of Mordoor", ArmorTypes.Cloth, 3, SlotTypes.Body, new PrimaryAttributes { Inteligence = 5, Vitality = 1 });
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine(Hero.ToString());
-            Console.WriteLine("Now try to add some more Armor!");
-            Console.WriteLine("Press any key to Add more Armor!");
+            Console.WriteLine("Now try to add an Armor not suitable for you Hero's level!");
+            Console.WriteLine("Press any key to Add new Armor!");
             Console.ReadLine();
             Console.Clear();
 
-            Hero.AddNewArmor("Large Helmet", ArmorTypes.Leather, 15, SlotTypes.Head, new PrimaryAttributes { Vitality = 20, Strengt = 10 });
+            Hero.AddNewArmor("Major Cloak Of Invincibility", ArmorTypes.Cloth, 15, SlotTypes.Body, new PrimaryAttributes { Inteligence = 15, Vitality = 10 });
+            Console.WriteLine();
+            Console.WriteLine();
+            Console.WriteLine(Hero.ToString());
+            Console.WriteLine("Now try to add some more Armor not suitable for your class!");
+            Console.WriteLine("Press any key to Add new Armor!");
+            Console.ReadLine();
+            Console.Clear();
+
+            Hero.AddNewArmor("Large bulky Helmet", ArmorTypes.Plate, 2, SlotTypes.Head, new PrimaryAttributes { Vitality = 1, Strengt = 5 });
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine(Hero.ToString());
@@ -52,7 +61,7 @@ namespace RPG_Assignment_1
             Console.WriteLine();
             Console.Clear();
 
-            Hero.AddNewWeapon("Common Staff", WeaponTypes.Staff, 20, SlotTypes.Weapon, 7, 1.1);
+            Hero.AddNewWeapon("Common Staff", WeaponTypes.Staff, 3, SlotTypes.Weapon, 7, 1.1);
             Console.WriteLine();
             Console.WriteLine(Hero.ToString());
             Console.ReadLine();

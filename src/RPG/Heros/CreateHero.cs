@@ -83,6 +83,7 @@ namespace RPG_Assignment_1
                         {
                             ArmorAttributes = new ArmorAttributes(name, armorTypes, requiredLevel, slotTypes);
                             BaseSecondaryAttributes = BaseSecondaryAttributes.Add(attributes.Vitality, attributes.Strengt + attributes.Dexterity, attributes.Inteligence);
+                            BasePrimaryAttributes = BasePrimaryAttributes.Upd(attributes);
                             break;
                         }
                         else
@@ -100,6 +101,7 @@ namespace RPG_Assignment_1
                         {
                             ArmorAttributes = new ArmorAttributes(name, armorTypes, requiredLevel, slotTypes);
                             BaseSecondaryAttributes = BaseSecondaryAttributes.Add(attributes.Vitality, attributes.Strengt + attributes.Dexterity, attributes.Inteligence);
+                            BasePrimaryAttributes = BasePrimaryAttributes.Upd(attributes);
                             break;
                         }
                         else
@@ -116,6 +118,7 @@ namespace RPG_Assignment_1
                         {
                             ArmorAttributes = new ArmorAttributes(name, armorTypes, requiredLevel, slotTypes);
                             BaseSecondaryAttributes = BaseSecondaryAttributes.Add(attributes.Vitality, attributes.Strengt + attributes.Dexterity, attributes.Inteligence);
+                            BasePrimaryAttributes = BasePrimaryAttributes.Upd(attributes);
                             break;
                         }
                         else
@@ -128,9 +131,7 @@ namespace RPG_Assignment_1
                 default:
                     Console.WriteLine($"You are not able to use the armor named: {name} ");
                     break;
-            }
-            BasePrimaryAttributes = BasePrimaryAttributes.Upd(attributes);
-            
+            }    
         }
         /// <summary>
         /// Add Weapon and calculate DPS
@@ -178,6 +179,7 @@ namespace RPG_Assignment_1
                     Console.WriteLine($"You are not able to use the weapon named: {name} ");
                     break;
             }
+            BasePrimaryAttributes = Attribute.CalculateDPS(BasePrimaryAttributes, WeaponAttributes);
         }
 
 

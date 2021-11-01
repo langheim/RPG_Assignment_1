@@ -25,7 +25,7 @@
             Strengt += attribute.Strengt;
             Dexterity += attribute.Dexterity;
             Inteligence += attribute.Inteligence;
-            DPS += attribute.DPS;
+            _=DPS = attribute.DPS;
             Level += Level;
             return this;
         }
@@ -36,7 +36,7 @@
             Strengt += strengt;
             Dexterity += dexterity;
             Inteligence += inteligence;
-            DPS += dps;
+            _=DPS += dps;
             Level += level;
             return this;
         }
@@ -46,7 +46,6 @@
             Strengt += attribute.Strengt;
             Dexterity += attribute.Dexterity;
             Inteligence += attribute.Inteligence;
-            DPS = attribute.DPS;
             Level = Level;
             return this;
         }

@@ -59,11 +59,17 @@
         public PrimaryAttributes CalculateDPS(PrimaryAttributes attribute, WeaponAttributes weaponAttribute)
         {
             //Main Attribute for a Mage is Inteligence
-            double mainAttribute = attribute.Inteligence / 100;
-            double levelAndAttr = attribute.Level + mainAttribute;
+            double HeroMainAttributes = attribute.Inteligence;
+            int DevideBy = 100;
+            int HeroLevel = attribute.Level;
+            double WeaponDamage = weaponAttribute.Damage;
+            double WeaponAttackSpeed = weaponAttribute.AttackSpeed;
+
+            double mainAttribute = HeroMainAttributes / DevideBy;
+            double levelAndAttr = HeroLevel + mainAttribute;
             if (weaponAttribute.WeaponTypes != WeaponTypes.None)
             {
-                double weapon = weaponAttribute.Damage * weaponAttribute.AttackSpeed;
+                double weapon = WeaponDamage * WeaponAttackSpeed;
                 double dps = weapon * levelAndAttr;
                 return attribute.AddDPS(dps);
             }
