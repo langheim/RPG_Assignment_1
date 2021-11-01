@@ -129,7 +129,8 @@ namespace RPG_Assignment_1
                     Console.WriteLine($"You are not able to use the armor named: {name} ");
                     break;
             }
-            BasePrimaryAttributes = BasePrimaryAttributes.Add(attributes);
+            BasePrimaryAttributes = BasePrimaryAttributes.Upd(attributes);
+            
         }
         /// <summary>
         /// Add Weapon and calculate DPS
@@ -140,7 +141,7 @@ namespace RPG_Assignment_1
 
             switch (herotypes)
             {
-                case HeroTypes.Rouge:
+                case HeroTypes.Mage:
                     if ((weaponTypes == WeaponTypes.Staff || weaponTypes == WeaponTypes.Wand))
                     {
                         if (requiredLevel <= BasePrimaryAttributes.Level)
@@ -157,7 +158,7 @@ namespace RPG_Assignment_1
                     break;
 
                 case HeroTypes.Ranger:
-                case HeroTypes.Mage:
+                case HeroTypes.Rouge:
                 case HeroTypes.Warrior:
                     if ((weaponTypes != WeaponTypes.Staff & weaponTypes != WeaponTypes.Wand))
                     {

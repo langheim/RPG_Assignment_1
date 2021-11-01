@@ -40,6 +40,16 @@
             Level += level;
             return this;
         }
+        public PrimaryAttributes Upd(PrimaryAttributes attribute)
+        {
+            Vitality += attribute.Vitality;
+            Strengt += attribute.Strengt;
+            Dexterity += attribute.Dexterity;
+            Inteligence += attribute.Inteligence;
+            DPS = attribute.DPS;
+            Level = Level;
+            return this;
+        }
         public PrimaryAttributes AddDPS(double dps)
         {
             DPS = dps;
