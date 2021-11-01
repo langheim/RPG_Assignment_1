@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RPG_Assignment_1
+﻿namespace RPG_Assignment_1
 {
     public class Mage : ICreateHero
     {
@@ -22,7 +16,7 @@ namespace RPG_Assignment_1
         /// <returns>attributes to secAttribute container </returns>
         public SecondaryAttributes SetBaseSecondaryAttributes(PrimaryAttributes attributes)
         {
-            return new SecondaryAttributes(attributes.Vitality * 10, attributes.Strengt + attributes.Dexterity, attributes.Inteligence + 10) ;
+            return new SecondaryAttributes(attributes.Vitality * 10, attributes.Strengt + attributes.Dexterity, attributes.Inteligence + 10);
         }
         /// <summary>
         /// Set base armor for Hero = None
@@ -55,13 +49,13 @@ namespace RPG_Assignment_1
         public SecondaryAttributes LevelUpSecAttributes(SecondaryAttributes secAttribute)
         {
             return secAttribute.Add(50, 2, 2);
-        }
+        }    
         /// <summary>
-        /// Calculate DPS - if no wepaon 1 * (Hero Level + (Main attribute / 100) else 
-        /// (Weapon damage * Weapon attackspeed) * (Hero Level + (Main attribute / 100) 
+        /// Calculate DPS: 
+        /// if no wepaon 1 * (Hero Level + (Main attribute / 100) 
+        /// With Weapon: (Weapon damage * Weapon attackspeed) * (Hero Level + (Main attribute / 100) 
         /// </summary>
         /// <returns>Calculated DPS to PrimaryAttributes container</returns>
-        
         public PrimaryAttributes CalculateDPS(PrimaryAttributes attribute, WeaponAttributes weaponAttribute)
         {
             //Main Attribute for a Mage is Inteligence
@@ -79,10 +73,6 @@ namespace RPG_Assignment_1
                 return attribute.AddDPS(dps);
             }
         }
-
     }
-
-
 }
 
-   

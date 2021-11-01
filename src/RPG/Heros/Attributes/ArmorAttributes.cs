@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RPG_Assignment_1
+﻿namespace RPG_Assignment_1
 {
     public class ArmorAttributes : Items
     {
@@ -17,7 +11,7 @@ namespace RPG_Assignment_1
             ArmorTypes = armorTypes;
             RequiredLevel = requiredLevel;
             SlotTypes = slotTypes;
-            
+
         }
         public ArmorAttributes Add(ArmorAttributes armorAttribute)
         {

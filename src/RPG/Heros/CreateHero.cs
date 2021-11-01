@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace RPG_Assignment_1
 {
@@ -64,7 +61,7 @@ namespace RPG_Assignment_1
         public void LevelUp()
         {
             //Level up primary and secondary attributes and calculate DPS
-          
+
             BasePrimaryAttributes = Attribute.LevelUpAttributes(BasePrimaryAttributes);
             BaseSecondaryAttributes = SetSecAttribute.LevelUpSecAttributes(BaseSecondaryAttributes);
             BasePrimaryAttributes = Attribute.CalculateDPS(BasePrimaryAttributes, WeaponAttributes);
@@ -80,7 +77,7 @@ namespace RPG_Assignment_1
             switch (herotypes)
             {
                 case HeroTypes.Mage:
-                    if (armorTypes == ArmorTypes.Cloth) 
+                    if (armorTypes == ArmorTypes.Cloth)
                     {
                         if (requiredLevel <= BasePrimaryAttributes.Level)
                         {
@@ -90,11 +87,11 @@ namespace RPG_Assignment_1
                         }
                         else
                             Console.WriteLine($"You cannot use {name}, required level for {name} is {requiredLevel}");
-                            break;
+                        break;
                     }
                     else
                         Console.WriteLine($"Your {herotypes} class cannot use Armor of type {armorTypes}");
-                        break;
+                    break;
                 case HeroTypes.Ranger:
                 case HeroTypes.Rouge:
                     if (armorTypes == ArmorTypes.Leather || armorTypes == ArmorTypes.Mail)
@@ -107,11 +104,11 @@ namespace RPG_Assignment_1
                         }
                         else
                             Console.WriteLine($"You cannot use {name}, required level for {name} is {requiredLevel}");
-                            break;
+                        break;
                     }
                     else
                         Console.WriteLine($"Your {herotypes} class cannot use Armor of type {armorTypes}");
-                        break;
+                    break;
                 case HeroTypes.Warrior:
                     if (armorTypes == ArmorTypes.Mail || armorTypes == ArmorTypes.Plate)
                     {
@@ -123,11 +120,11 @@ namespace RPG_Assignment_1
                         }
                         else
                             Console.WriteLine($"You cannot use {name}, required level for {name} is {requiredLevel}");
-                            break;
+                        break;
                     }
                     else
                         Console.WriteLine($"Your {herotypes} class cannot use Armor of type {armorTypes}");
-                        break;
+                    break;
                 default:
                     Console.WriteLine($"You are not able to use the armor named: {name} ");
                     break;
@@ -140,7 +137,7 @@ namespace RPG_Assignment_1
         public void AddNewWeapon(string name, WeaponTypes weaponTypes, int requiredLevel, SlotTypes slotTypes, double damage, double attackSpeed)
         {
             var herotypes = this.HeroTypes;
-            
+
             switch (herotypes)
             {
                 case HeroTypes.Rouge:
@@ -153,12 +150,12 @@ namespace RPG_Assignment_1
                         }
                         else
                             Console.WriteLine($"You cannot pick up this weapon, required level for {name} is {requiredLevel} ");
-                            break;
+                        break;
                     }
                     else
                         Console.WriteLine($"Your {herotypes} class cannot use this weapon of type {weaponTypes}");
-                        break;
-                    
+                    break;
+
                 case HeroTypes.Ranger:
                 case HeroTypes.Mage:
                 case HeroTypes.Warrior:
