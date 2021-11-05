@@ -5,15 +5,15 @@ using RPG_Assignment_1.Game.Interfaces;
 
 namespace RPG_Assignment_1.Game.Character
 {
-    public class Mage : ICreateHero
+    public class Warrior : ICreateHero
     {
         public int GetMainAttribute(PrimaryAttributes attribute)
         {
-            return attribute.Inteligence;
+            return attribute.Strength;
         }
         public PrimaryAttributes SetBaseAttributes()
         {
-            return new PrimaryAttributes(5, 1, 1, 8, 1);
+            return new PrimaryAttributes(10, 5, 2, 1, 1);
         }
         public SecondaryAttributes SetBaseSecondaryAttributes(PrimaryAttributes attribute)
         {
@@ -29,7 +29,7 @@ namespace RPG_Assignment_1.Game.Character
         }
         public PrimaryAttributes LevelUpAttributes(PrimaryAttributes attribute)
         {
-            return attribute.Add(3, 1, 1, 5, 0);
+            return attribute.Add(5, 3, 2, 1, 0);
         }
         public SecondaryAttributes LevelUpSecAttributes(PrimaryAttributes attribute)
         {
@@ -37,7 +37,7 @@ namespace RPG_Assignment_1.Game.Character
         }
         public PrimaryAttributes CalculateDps(PrimaryAttributes attribute, Weapon BaseWeaponAttribute)
         {
-            double mainAttribute = attribute.Inteligence;
+            double mainAttribute = attribute.Strength;
             double Devider = 100;
             double WithWeapon = 1;
             if (BaseWeaponAttribute.WeaponTypes != WeaponTypes.None)
