@@ -1,52 +1,47 @@
-﻿namespace RPG_Assignment_1
+﻿namespace RPG_Assignment_1.Game.Attributes
 {
     public struct PrimaryAttributes
     {
-        public int Level { get; private set; }
         public int Vitality { get; set; }
-        public int Strengt { get; set; }
+        public int Strength { get; set; }
         public int Dexterity { get; set; }
         public int Inteligence { get; set; }
         public double DPS { get; set; }
 
-        public PrimaryAttributes(int vitality, int strength, int dexterity, int inteligence, double dps, int level)
+        public PrimaryAttributes(int vitality, int strength, int dexterity, int inteligence, double dps)
         {
             Vitality = vitality;
-            Strengt = strength;
+            Strength = strength;
             Dexterity = dexterity;
             Inteligence = inteligence;
             DPS = dps;
-            Level = level;
         }
 
         public PrimaryAttributes Add(PrimaryAttributes attribute)
         {
             Vitality += attribute.Vitality;
-            Strengt += attribute.Strengt;
+            Strength += attribute.Strength;
             Dexterity += attribute.Dexterity;
             Inteligence += attribute.Inteligence;
-            _=DPS = attribute.DPS;
-            Level += Level;
+            DPS = attribute.DPS;
             return this;
         }
 
-        public PrimaryAttributes Add(int vitality, int strengt, int dexterity, int inteligence, double dps, int level)
+        public PrimaryAttributes Add(int vitality, int strength, int dexterity, int inteligence, double dps)
         {
             Vitality += vitality;
-            Strengt += strengt;
+            Strength += strength;
             Dexterity += dexterity;
             Inteligence += inteligence;
-            _=DPS += dps;
-            Level += level;
+            DPS = dps;
             return this;
         }
         public PrimaryAttributes Upd(PrimaryAttributes attribute)
         {
             Vitality += attribute.Vitality;
-            Strengt += attribute.Strengt;
+            Strength += attribute.Strength;
             Dexterity += attribute.Dexterity;
             Inteligence += attribute.Inteligence;
-            Level = Level;
             return this;
         }
         public PrimaryAttributes AddDPS(double dps)

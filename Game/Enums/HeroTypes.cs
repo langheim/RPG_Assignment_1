@@ -1,4 +1,4 @@
-﻿namespace RPG_Assignment_1
+﻿namespace RPG_Assignment_1.Game.Enums
 {
     public enum HeroTypes
     {
@@ -8,5 +8,5 @@
         Warrior
 
     }
+}   
 
-}
