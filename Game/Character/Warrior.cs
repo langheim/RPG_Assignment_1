@@ -37,16 +37,24 @@ namespace RPG_Assignment_1.Game.Character
         }
         public PrimaryAttributes CalculateDps(PrimaryAttributes attribute, Weapon BaseWeaponAttribute)
         {
+
             double mainAttribute = attribute.Strength;
             double Devider = 100;
-            double WithWeapon = 1;
             if (BaseWeaponAttribute.WeaponTypes != WeaponTypes.None)
             {
-                WithWeapon = BaseWeaponAttribute.WeaponAttributes.Damage * BaseWeaponAttribute.WeaponAttributes.AttackSpeed;
+                int DPS = 0;
+
+                double damage = BaseWeaponAttribute.WeaponAttributes.Damage * BaseWeaponAttribute.WeaponAttributes.AttackSpeed;
+                double dps = damage * (1.0 + mainAttribute / 100.0);
+                return attribute.AddDPS(dps);
             }
-            double dps = (WithWeapon * (1 + mainAttribute / Devider));
-            return attribute.AddDPS(dps);
+            else
+            {
+                double dps = (1 * (1 + mainAttribute / Devider));
+                return attribute.AddDPS(dps);
+            }
         }
     }
+
 }
 

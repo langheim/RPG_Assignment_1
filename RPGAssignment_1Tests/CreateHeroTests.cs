@@ -1,12 +1,12 @@
+using RPG_Assignment_1;
 using RPG_Assignment_1.Game;
 using RPG_Assignment_1.Game.Attributes;
 using RPG_Assignment_1.Game.Character;
 using RPG_Assignment_1.Game.Enums;
 using RPG_Assignment_1.Game.Functions;
 using System;
-using Xunit;
-using RPG_Assignment_1;
 using System.IO;
+using Xunit;
 
 namespace RPGAssignment_1Tests
 {
@@ -99,21 +99,21 @@ namespace RPGAssignment_1Tests
             var stringWriter = new StringWriter();
             Console.SetOut(stringWriter);
 
-                CreateHero Hero = new CreateHero("Padawan", HeroTypes.Warrior, new Warrior());
+            CreateHero Hero = new CreateHero("Padawan", HeroTypes.Warrior, new Warrior());
 
-                //Act & Assert
-                Hero.AddWeapon(new Weapon()
-                {
-                    Name = "Common Bow",
-                    RequiredLevel = 1,
-                    SlotTypes = SlotTypes.Weapon,
-                    WeaponTypes = WeaponTypes.Sword,
-                    WeaponAttributes = new WeaponAttributes { Damage = 7, AttackSpeed = 1.1 }
-                });
+            //Act & Assert
+            Hero.AddWeapon(new Weapon()
+            {
+                Name = "Common Bow",
+                RequiredLevel = 1,
+                SlotTypes = SlotTypes.Weapon,
+                WeaponTypes = WeaponTypes.Sword,
+                WeaponAttributes = new WeaponAttributes { Damage = 7, AttackSpeed = 1.1 }
+            });
 
             var output = stringWriter.ToString();
             Assert.Equal($"New Weapon equipped!\r\n", output); ;
-            
+
         }
 
         [Fact]
@@ -178,7 +178,7 @@ namespace RPGAssignment_1Tests
             var DPS = (Hero.BasePrimaryAttributes.DPS).ToString();
 
             var output = stringWriter.ToString();
-            double calculation = (7 * 1.1) * (1 + (5 / 100));
+            double calculation = 8.085;
 
             Assert.Equal(calculation.ToString(), DPS); ;
 
@@ -212,7 +212,7 @@ namespace RPGAssignment_1Tests
             var DPS = (Hero.BasePrimaryAttributes.DPS).ToString();
 
             var output = stringWriter.ToString();
-            double calculation = (7 * 1.1) * (1 + ((5 + 1) / 100));
+            double calculation = 8.085;
 
             Assert.Equal(calculation.ToString(), DPS); ;
 

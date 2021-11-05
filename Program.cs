@@ -12,12 +12,6 @@ namespace RPG_Assignment_1
         static void Main(string[] args)
         {
 
-            double number = (7 * 1.1) * (1 + ((5 + 1) / 100));
-
-            Console.WriteLine(number);
-
-            Console.ReadLine();
-
             CreateHero Hero = new CreateHero("Padawan", HeroTypes.Warrior, new Warrior());
             Console.WriteLine($"Here is your Hero named {Hero.Name}! Your stats before leveling up are:");
             Console.WriteLine();
@@ -44,10 +38,16 @@ namespace RPG_Assignment_1
                 RequiredLevel = 1,
                 SlotTypes = SlotTypes.Body,
                 ArmorTypes = ArmorTypes.Plate,
-                BasePrimaryAttributes = new PrimaryAttributes { Vitality = 2, Strength = 3 }
+                BasePrimaryAttributes = new PrimaryAttributes { Vitality = 2, Strength = 1 }
             });
             Console.WriteLine("");
             Console.WriteLine(Hero.ToString());
+
+            double number1 = (7 * 1.1) * (1 + ((5 + 1) / 100));
+
+            Console.WriteLine(number1);
+
+            Console.ReadLine();
             Console.WriteLine("Press any key to level up!");
             Console.ReadLine();
             Console.Clear();

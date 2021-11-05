@@ -103,7 +103,7 @@ namespace RPG_Assignment_1
             WeaponTypes = WeaponTypes.Bow,
             WeaponAttributes = new WeaponAttributes { Damage = 3, AttackSpeed = 1.0 }
         };
-         public Weapon Dagger { get; set; } = new Weapon()
+        public Weapon Dagger { get; set; } = new Weapon()
         {
             Name = "Common Dagger",
             RequiredLevel = 1,

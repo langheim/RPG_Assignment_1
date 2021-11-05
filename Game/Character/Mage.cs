@@ -39,15 +39,16 @@ namespace RPG_Assignment_1.Game.Character
         {
             double mainAttribute = attribute.Inteligence;
             double Devider = 100;
-            double WithWeapon = 1;
             if (BaseWeaponAttribute.WeaponTypes != WeaponTypes.None)
             {
-                WithWeapon = BaseWeaponAttribute.WeaponAttributes.Damage * BaseWeaponAttribute.WeaponAttributes.AttackSpeed;
+                double dps = (BaseWeaponAttribute.WeaponAttributes.Damage * BaseWeaponAttribute.WeaponAttributes.AttackSpeed * (1 + mainAttribute / Devider));
+                return attribute.AddDPS(dps);
             }
-
-            double dps = (WithWeapon * (1 + mainAttribute / Devider));
-
-            return attribute.AddDPS(dps);
+            else
+            {
+                double dps = (1 * (1 + mainAttribute / Devider));
+                return attribute.AddDPS(dps);
+            }
         }
     }
 }

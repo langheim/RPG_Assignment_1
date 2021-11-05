@@ -70,7 +70,7 @@ namespace RPG_Assignment_1.Game
         {
             if (level != 1)
             {
-                throw new InvalidLevelException(message: "parameter must be 1.");
+                throw new InvalidLevelException(message: "Level must be 1.");
             }
             Level++;
             BasePrimaryAttributes = HeroClass.LevelUpAttributes(BasePrimaryAttributes);
