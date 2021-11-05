@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RPG_Assignment_1
 {
@@ -11,10 +7,10 @@ namespace RPG_Assignment_1
         public InvalidLevelException()
         {
         }
-        public InvalidLevelException(string message): base(message)
+        public InvalidLevelException(string message) : base(message)
         {
         }
-        public InvalidLevelException(string message, Exception inner): base(message, inner)
+        public InvalidLevelException(string message, Exception inner) : base(message, inner)
         {
         }
     }

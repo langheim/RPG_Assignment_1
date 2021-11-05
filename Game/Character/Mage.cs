@@ -21,7 +21,7 @@ namespace RPG_Assignment_1.Game.Character
         }
         public Armor NewBaseArmorAttributes()
         {
-            return new Armor("No Armor", 0, SlotTypes.None, ArmorTypes.None);   
+            return new Armor("No Armor", 0, SlotTypes.None, ArmorTypes.None);
         }
         public Weapon NewBaseWeaponAttributes()
         {

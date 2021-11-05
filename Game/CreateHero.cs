@@ -1,7 +1,7 @@
 ﻿using RPG_Assignment_1.Game.Attributes;
+using RPG_Assignment_1.Game.Enums;
 using RPG_Assignment_1.Game.Functions;
 using RPG_Assignment_1.Game.Interfaces;
-using RPG_Assignment_1.Game.Enums;
 using System.Text;
 
 namespace RPG_Assignment_1.Game
@@ -69,9 +69,9 @@ namespace RPG_Assignment_1.Game
         public void LevelUp(int level)
         {
             if (level != 1)
-             {
+            {
                 throw new InvalidLevelException(message: "parameter must be 1.");
-             }
+            }
             Level++;
             BasePrimaryAttributes = HeroClass.LevelUpAttributes(BasePrimaryAttributes);
             BaseSecondaryAttributes = HeroClass.LevelUpSecAttributes(BasePrimaryAttributes);
@@ -107,7 +107,7 @@ namespace RPG_Assignment_1.Game
                             break;
                         }
                         else
-                            throw new InvalidArmorException (message: $"You cannot use {armor.Name}, required level for {armor.Name} is {armor.RequiredLevel}");
+                            throw new InvalidArmorException(message: $"You cannot use {armor.Name}, required level for {armor.Name} is {armor.RequiredLevel}");
                     }
                     else
                         throw new InvalidArmorException(message: $"Your {HeroTypes} class cannot use Armor of type {armor.ArmorTypes}");
@@ -170,10 +170,10 @@ namespace RPG_Assignment_1.Game
                             break;
                         }
                         else
-                            throw new InvalidWeaponException(message: $"You cannot use {weapon.Name}, required level for {weapon.Name} is {weapon.RequiredLevel}");    
+                            throw new InvalidWeaponException(message: $"You cannot use {weapon.Name}, required level for {weapon.Name} is {weapon.RequiredLevel}");
                     }
                     else
-                        throw new InvalidWeaponException(message:$"Your {HeroTypes} class cannot use the weapon {weapon.WeaponTypes}");
+                        throw new InvalidWeaponException(message: $"Your {HeroTypes} class cannot use the weapon {weapon.WeaponTypes}");
                 case HeroTypes.Ranger:
                     if (weapon.WeaponTypes == WeaponTypes.Bow)
                     {
@@ -259,6 +259,6 @@ namespace RPG_Assignment_1.Game
             stringBuilder.AppendLine($"DPS: {BasePrimaryAttributes.DPS}");
             return stringBuilder.ToString();
         }
-    
+
     }
 }

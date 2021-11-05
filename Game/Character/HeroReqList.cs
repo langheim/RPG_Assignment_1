@@ -1,10 +1,9 @@
-﻿using RPG_Assignment_1.Game.Enums;
-using RPG_Assignment_1.Game.Character;
-using System;
-using System.Collections.Generic;
-using System.Collections;
+﻿using RPG_Assignment_1.Game.Attributes;
+using RPG_Assignment_1.Game.Enums;
 using RPG_Assignment_1.Game.Functions;
-using RPG_Assignment_1.Game.Attributes;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace RPG_Assignment_1
 {

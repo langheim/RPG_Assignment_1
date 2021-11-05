@@ -1,6 +1,4 @@
-﻿using RPG_Assignment_1.Game.Functions;
-
-namespace RPG_Assignment_1.Game.Attributes
+﻿namespace RPG_Assignment_1.Game.Attributes
 {
     public class WeaponAttributes
     {
@@ -10,7 +8,7 @@ namespace RPG_Assignment_1.Game.Attributes
 
         public WeaponAttributes Add(WeaponAttributes weaponAttributes)
         {
-            Damage += weaponAttributes.Damage ;
+            Damage += weaponAttributes.Damage;
             AttackSpeed += weaponAttributes.AttackSpeed;
             return this;
         }
