@@ -12,6 +12,12 @@ namespace RPG_Assignment_1
         static void Main(string[] args)
         {
 
+            double number = (7 * 1.1) * (1 + ((5 + 1) / 100));
+
+            Console.WriteLine(number);
+
+            Console.ReadLine();
+
             CreateHero Hero = new CreateHero("Padawan", HeroTypes.Warrior, new Warrior());
             Console.WriteLine($"Here is your Hero named {Hero.Name}! Your stats before leveling up are:");
             Console.WriteLine();
@@ -21,15 +27,12 @@ namespace RPG_Assignment_1
             Console.Clear();
             Hero.AddWeapon(new Weapon()
             {
-
                 Name = "Common axe",
                 RequiredLevel = 1,
                 SlotTypes = SlotTypes.Weapon,
                 WeaponTypes = WeaponTypes.Axe,
                 WeaponAttributes = new WeaponAttributes { Damage = 7, AttackSpeed = 1.1 }
-
             });
-
             Console.WriteLine("");
             Console.WriteLine(Hero.ToString());
             Console.WriteLine("Level 1 and adding an Armor");
@@ -37,13 +40,11 @@ namespace RPG_Assignment_1
             Console.Clear();
             Hero.AddArmor(new Armor()
             {
-
                 Name = "Common plate body armor",
                 RequiredLevel = 1,
                 SlotTypes = SlotTypes.Body,
                 ArmorTypes = ArmorTypes.Plate,
                 BasePrimaryAttributes = new PrimaryAttributes { Vitality = 2, Strength = 3 }
-
             });
             Console.WriteLine("");
             Console.WriteLine(Hero.ToString());
@@ -65,16 +66,12 @@ namespace RPG_Assignment_1
             Console.Clear();
             Hero.AddArmor(new Armor()
             {
-
                 Name = "Common plate body armor",
                 RequiredLevel = 1,
                 SlotTypes = SlotTypes.Body,
                 ArmorTypes = ArmorTypes.Plate,
                 BasePrimaryAttributes = new PrimaryAttributes { Vitality = 2, Strength = 3 }
-
             });
-
-            //Hero.ReCalcDPS();
             Console.WriteLine("");
             Console.WriteLine(Hero.ToString());
             Console.WriteLine("Press any key to A weapon");
@@ -82,15 +79,12 @@ namespace RPG_Assignment_1
             Console.Clear();
             Hero.AddWeapon(new Weapon()
             {
-
                 Name = "Common axe",
                 RequiredLevel = 3,
                 SlotTypes = SlotTypes.Weapon,
                 WeaponTypes = WeaponTypes.Axe,
                 WeaponAttributes = new WeaponAttributes { Damage = 7, AttackSpeed = 1.1 }
-
             });
-
             Console.WriteLine("");
             Console.WriteLine(Hero.ToString());
             Console.ReadLine();
@@ -99,17 +93,14 @@ namespace RPG_Assignment_1
             Console.Clear();
             Hero.AddWeapon(new Weapon()
             {
-
                 Name = "One bigAss sword",
                 RequiredLevel = 3,
                 SlotTypes = SlotTypes.Weapon,
                 WeaponTypes = WeaponTypes.Sword,
                 WeaponAttributes = new WeaponAttributes { Damage = 15, AttackSpeed = 1.3 }
-
             });
             Console.WriteLine("");
             Console.WriteLine(Hero.ToString());
-
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("");
@@ -117,10 +108,6 @@ namespace RPG_Assignment_1
             Console.WriteLine("");
             Console.WriteLine("");
             Console.WriteLine("");
-
-
-
-
 
             // Mage class
             Console.Clear();
@@ -146,16 +133,12 @@ namespace RPG_Assignment_1
             Console.Clear();
             Hero2.AddArmor(new Armor()
             {
-
                 Name = "Common plate body armor",
                 RequiredLevel = 1,
                 SlotTypes = SlotTypes.Body,
                 ArmorTypes = ArmorTypes.Cloth,
                 BasePrimaryAttributes = new PrimaryAttributes { Vitality = 2, Strength = 1 }
-
             });
-
-            //Hero.ReCalcDPS();
             Console.WriteLine("");
             Console.WriteLine(Hero2.ToString());
             Console.WriteLine("Press any key to A weapon");
@@ -163,7 +146,6 @@ namespace RPG_Assignment_1
             Console.Clear();
             Hero2.AddWeapon(new Weapon()
             {
-
                 Name = "Common Slow Staff",
                 RequiredLevel = 3,
                 SlotTypes = SlotTypes.Weapon,
@@ -171,7 +153,6 @@ namespace RPG_Assignment_1
                 WeaponAttributes = new WeaponAttributes { Damage = 2, AttackSpeed = 1.1 }
 
             });
-
             Console.WriteLine("");
             Console.WriteLine(Hero2.ToString());
             Console.ReadLine();
@@ -180,16 +161,25 @@ namespace RPG_Assignment_1
             Console.Clear();
             Hero2.AddWeapon(new Weapon()
             {
-
                 Name = "Uber magic Staff",
                 RequiredLevel = 3,
                 SlotTypes = SlotTypes.Weapon,
                 WeaponTypes = WeaponTypes.Staff,
                 WeaponAttributes = new WeaponAttributes { Damage = 10, AttackSpeed = 1.1 }
-
             });
             Console.WriteLine("");
             Console.WriteLine(Hero2.ToString());
+            Console.WriteLine("Press some armor not suitable for you class");
+            Console.ReadLine();
+            Console.Clear();
+            Hero2.AddArmor(new Armor()
+            {
+                Name = "Common plate body armor",
+                RequiredLevel = 1,
+                SlotTypes = SlotTypes.Body,
+                ArmorTypes = ArmorTypes.Mail,
+                BasePrimaryAttributes = new PrimaryAttributes { Vitality = 2, Strength = 7 }
+            });
         }
     }
 }

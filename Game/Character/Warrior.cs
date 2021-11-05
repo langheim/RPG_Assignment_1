@@ -44,7 +44,7 @@ namespace RPG_Assignment_1.Game.Character
             {
                 WithWeapon = BaseWeaponAttribute.WeaponAttributes.Damage * BaseWeaponAttribute.WeaponAttributes.AttackSpeed;
             }
-            double dps = WithWeapon * (1 + mainAttribute / Devider);
+            double dps = (WithWeapon * (1 + mainAttribute / Devider));
             return attribute.AddDPS(dps);
         }
     }

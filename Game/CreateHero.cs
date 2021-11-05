@@ -89,6 +89,7 @@ namespace RPG_Assignment_1.Game
         /// Hero.AddArmor takes parameterless constructor inputs and sets it to BaseArmorAttribute
         /// Send BaseArmorAttribute part of Hero to PrimaryAttributes
         /// Recalculates DPS
+        /// Case: first check if required Level is met, then check if type is allowed on you class. Exception if not.
         /// </summary>
         /// <param name="armor"></param>
         public void AddArmor(Armor armor)
@@ -148,12 +149,13 @@ namespace RPG_Assignment_1.Game
                     throw new InvalidArmorException(message: $"You are not able to use the armor named: {armor.Name} ");
             }
 
-            System.Console.WriteLine("New Armour equipped!");
+            System.Console.WriteLine("New Armour equipded!");
         }
         /// <summary>
         /// Adding new Armor to a hero
         /// Hero.AddWeapon takes parameterless constructor inputs as input and sets it to BaseWeaponAttribute
         /// Recalculates DPS
+        /// Case: first check if required Level is met, then check if type is allowed on you class. Exception if not.
         /// </summary>
         /// <param name="weapon"></param>
         public void AddWeapon(Weapon weapon)
@@ -161,7 +163,7 @@ namespace RPG_Assignment_1.Game
             switch (HeroTypes)
             {
                 case HeroTypes.Mage:
-                    if (weapon.WeaponTypes == WeaponTypes.Staff)
+                    if (weapon.WeaponTypes == WeaponTypes.Staff || weapon.WeaponTypes == WeaponTypes.Wand)
                     {
                         if (weapon.RequiredLevel <= Level)
                         {
@@ -220,7 +222,7 @@ namespace RPG_Assignment_1.Game
                     throw new InvalidWeaponException(message: $"You are not able to use the weapon named: {weapon.Name} ");
             }
 
-            System.Console.WriteLine("New Weapon equipped!");
+            System.Console.WriteLine("New Weapon equipded!");
         }
         /// <summary>
         /// Show a string representation of the Hero stats
