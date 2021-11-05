@@ -41,9 +41,9 @@ namespace RPG_Assignment_1.Game.Interfaces
         /// <returns>Attributes to secAttribute container </returns>
         SecondaryAttributes LevelUpSecAttributes(PrimaryAttributes attributes);
         /// <summary>
-        /// Calculate DPS
+        /// Calculate DPS 
         /// </summary>
-        /// <returns></returns>
+        /// <returns>dps</returns>
         PrimaryAttributes CalculateDps(PrimaryAttributes attribute, Weapon BaseWeaponAttribute);
 
     }

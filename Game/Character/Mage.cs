@@ -41,7 +41,8 @@ namespace RPG_Assignment_1.Game.Character
             double Devider = 100;
             if (BaseWeaponAttribute.WeaponTypes != WeaponTypes.None)
             {
-                double dps = (BaseWeaponAttribute.WeaponAttributes.Damage * BaseWeaponAttribute.WeaponAttributes.AttackSpeed * (1 + mainAttribute / Devider));
+                double damage = BaseWeaponAttribute.WeaponAttributes.Damage * BaseWeaponAttribute.WeaponAttributes.AttackSpeed;
+                double dps = damage * (1.0 + mainAttribute / 100.0);
                 return attribute.AddDPS(dps);
             }
             else

@@ -23,7 +23,7 @@
             Strength += attribute.Strength;
             Dexterity += attribute.Dexterity;
             Inteligence += attribute.Inteligence;
-            //            DPS = attribute.DPS;
+            DPS = attribute.DPS;
             return this;
         }
 
@@ -33,7 +33,7 @@
             Strength += strength;
             Dexterity += dexterity;
             Inteligence += inteligence;
-            //            DPS = dps;
+            DPS = dps;
             return this;
         }
         public PrimaryAttributes Upd(PrimaryAttributes attribute)

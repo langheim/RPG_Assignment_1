@@ -42,11 +42,6 @@ namespace RPG_Assignment_1
             });
             Console.WriteLine("");
             Console.WriteLine(Hero.ToString());
-
-            double number1 = (7 * 1.1) * (1 + ((5 + 1) / 100));
-
-            Console.WriteLine(number1);
-
             Console.ReadLine();
             Console.WriteLine("Press any key to level up!");
             Console.ReadLine();
