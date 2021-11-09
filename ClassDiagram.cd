@@ -1,159 +1,174 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="RPG_Assignment_1.Game.Attributes.WeaponAttributes" Collapsed="true">
-    <Position X="17" Y="2.5" Width="1.5" />
+    <Position X="14.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAACAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
       <FileName>Game\Attributes\WeaponAttributes.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RPG_Assignment_1.HeroReqList" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="15.25" Y="0.5" Width="1.5" />
+  <Class Name="RPG_Assignment_1.Game.Character.Mage" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAQhAAABAAAAAAAAAEAAAEAAAAAAAAAAA=</HashCode>
-      <FileName>Game\Character\HeroReqList.cs</FileName>
+      <HashCode>AAgAAAACAAAAAAQAAAAAAABAAAAEAAAAAACCBAAAFAA=</HashCode>
+      <FileName>Game\Character\Mage.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RPG_Assignment_1.Game.Character.Ranger" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="16.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAACAAAAAAQAAAAAAABAAAAEAAAAAACCBAAAFAA=</HashCode>
+      <FileName>Game\Character\Ranger.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RPG_Assignment_1.Game.Character.Rogue" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="11" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAACAAAAAAQAAAAAAABAAAAEAAAAAACCBAAAFAA=</HashCode>
+      <FileName>Game\Character\Rogue.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="RPG_Assignment_1.Game.Character.Warrior" Collapsed="true" BaseTypeListCollapsed="true">
+    <Position X="12.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAgAAAACAAAAAAQAAAAAAABAAAAEAAAAAACCBAAAFAA=</HashCode>
+      <FileName>Game\Character\Warrior.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="RPG_Assignment_1.InvalidArmorException" Collapsed="true">
-    <Position X="17" Y="0.5" Width="1.5" />
+    <Position X="14.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Game\Exceptions\InvalidArmorException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RPG_Assignment_1.InvalidLevelException" Collapsed="true">
-    <Position X="11.75" Y="1.5" Width="1.5" />
+    <Position X="16.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Game\Exceptions\InvalidLevelException.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RPG_Assignment_1.InvalidWeaponException" Collapsed="true">
-    <Position X="13.5" Y="1.5" Width="1.5" />
+    <Position X="11" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Game\Exceptions\InvalidWeaponException.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RPG_Assignment_1.EquiptmentRestrict" Collapsed="true">
-    <Position X="13.5" Y="0.5" Width="1.5" />
+  <Class Name="RPG_Assignment_1.ArmorLists" Collapsed="true">
+    <Position X="11" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Game\Items\EquiptmentRestrict.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="RPG_Assignment_1.ItemTests" Collapsed="true">
-    <Position X="15.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAIAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAA=</HashCode>
-      <FileName>Game\Items\WeaponList.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="RPG_Assignment_1.lista" Collapsed="true">
-    <Position X="17" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>lista.cs</FileName>
+      <HashCode>AEAAiAAAAAAAAgAgAAAAEAAAABAAAAMAAABAAAAAAAA=</HashCode>
+      <FileName>Game\Items\ArmorList.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RPG_Assignment_1.Program" Collapsed="true">
-    <Position X="13.5" Y="2.5" Width="1.5" />
+    <Position X="14.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
       <FileName>Program.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RPG_Assignment_1.Game.Character.Mage" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="11.75" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAgAAAACAAAAAAAAAAAAAABAAAAEAAAAAACCBAAAEAA=</HashCode>
-      <FileName>Game\Character\Mage.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
-  <Class Name="RPG_Assignment_1.Game.Character.Warrior" Collapsed="true" BaseTypeListCollapsed="true">
-    <Position X="15.25" Y="2.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAgAAAACAAAAAAAAAAAAAABAAAAEAAAAAACCBAAAEAA=</HashCode>
-      <FileName>Game\Character\Warrior.cs</FileName>
-    </TypeIdentifier>
-    <Lollipop Position="0.2" Collapsed="true" />
-  </Class>
   <Class Name="RPG_Assignment_1.Game.Functions.Armor" Collapsed="true">
-    <Position X="7" Y="1.75" Width="1.5" />
+    <Position X="8.5" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAACBAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAACAAAAAAAAAAAQAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
       <FileName>Game\Functions\Armor.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RPG_Assignment_1.Game.Functions.Items" Collapsed="true">
-    <Position X="8.25" Y="0.5" Width="1.5" />
+    <Position X="7.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAABgAAQAAAAAAAAAAAAAAIAAAAA=</HashCode>
       <FileName>Game\Functions\Items.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RPG_Assignment_1.Game.Functions.Weapon" Collapsed="true">
-    <Position X="9.25" Y="1.75" Width="1.5" />
+    <Position X="6.25" Y="1.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAACAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAABAAAAAAAAAAAAAACAAAIAAAAAAAAAA=</HashCode>
       <FileName>Game\Functions\Weapon.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="RPG_Assignment_1.Game.CreateHero" Collapsed="true">
-    <Position X="11.75" Y="0.5" Width="1.5" />
+  <Class Name="RPG_Assignment_1.Game.Items.WeaponLists" Collapsed="true">
+    <Position X="16.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAoRACBAAAAAAAEAAACAARBAAAAAAABAACCBIAAgAA=</HashCode>
+      <HashCode>AACAAAUAAAAAAAQAAAABBAAAAAEAAAABAQAAAECAQAA=</HashCode>
+      <FileName>Game\Items\WeaponLists.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RPG_Assignment_1.Game.CreateHero" Collapsed="true">
+    <Position X="12.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAoRACBAIAAAAQEAAACAARBAAAAAAABAACCBIAApAA=</HashCode>
       <FileName>Game\CreateHero.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Struct Name="RPG_Assignment_1.Game.Attributes.PrimaryAttributes" Collapsed="true">
-    <Position X="11.75" Y="3.75" Width="1.5" />
+    <Position X="11" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAoAAAiAAAAAAAAAAAABAAAEAABAAAAAAAAAAAAAAAI=</HashCode>
       <FileName>Game\Attributes\PrimaryAttributes.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Struct Name="RPG_Assignment_1.Game.Attributes.SecondaryAttributes" Collapsed="true">
-    <Position X="13.5" Y="3.75" Width="1.5" />
+    <Position X="12.75" Y="3.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIIECAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Game\Attributes\SecondaryAttributes.cs</FileName>
     </TypeIdentifier>
   </Struct>
   <Interface Name="RPG_Assignment_1.Game.Interfaces.ICreateHero" Collapsed="true">
-    <Position X="11.75" Y="5" Width="1.5" />
+    <Position X="11" Y="5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAgAAAACAAAAAAAAAAAAAABAAAAEAAAAAACCBAAAEAA=</HashCode>
+      <HashCode>AAgAAAACAAAAAAQAAAAAAABAAAAEAAAAAACCBAAAFAA=</HashCode>
       <FileName>Game\Interfaces\ICreateHero.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Enum Name="RPG_Assignment_1.Game.Enums.HeroTypes" Collapsed="true">
-    <Position X="13.5" Y="6" Width="1.5" />
+    <Position X="16.25" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>ACAAAAAAAAAACAAAAAAACAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>Game\Enums\HeroTypes.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="RPG_Assignment_1.Game.Enums.ArmorTypes" Collapsed="true">
-    <Position X="11.75" Y="6" Width="1.5" />
+    <Position X="11" Y="6" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAAAAAAAAAAAAIAAAAAAAQkAAAA=</HashCode>
       <FileName>Game\Enums\Items.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="RPG_Assignment_1.Game.Enums.WeaponTypes" Collapsed="true">
-    <Position X="17" Y="6" Width="1.5" />
+    <Position X="12.75" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAgCAAAAAAAAAQAAAAAAAAAICIABAAAAAAAAAEAAAA=</HashCode>
       <FileName>Game\Enums\Items.cs</FileName>
     </TypeIdentifier>
   </Enum>
   <Enum Name="RPG_Assignment_1.Game.Enums.SlotTypes" Collapsed="true">
-    <Position X="15.25" Y="6" Width="1.5" />
+    <Position X="11" Y="6.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAIAAAAABAAAAAAAAAAgAQAAAAAEAAAA=</HashCode>
+      <FileName>Game\Enums\Items.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RPG_Assignment_1.Game.Enums.AvailableArmor" Collapsed="true">
+    <Position X="12.75" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAiAAAAAAAAgAgAAAAEAAAABAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Game\Enums\Items.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Enum Name="RPG_Assignment_1.Game.Enums.AvailableWeapon" Collapsed="true">
+    <Position X="14.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAEAAAAAAAQAAAABBAAAAAEAAAAAAQAAAECAQAA=</HashCode>
       <FileName>Game\Enums\Items.cs</FileName>
     </TypeIdentifier>
   </Enum>
