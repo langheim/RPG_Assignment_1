@@ -7,7 +7,7 @@ namespace RPG_Assignment_1.Game.Functions
     {
         public WeaponTypes WeaponTypes { get; set; }
         public WeaponAttributes WeaponAttributes { get; set; }
-
+        public AvailableWeapon AvailableWeapon { get; set; }
 
         public Weapon()
         {

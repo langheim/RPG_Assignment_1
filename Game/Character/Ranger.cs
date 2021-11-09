@@ -2,6 +2,7 @@
 using RPG_Assignment_1.Game.Enums;
 using RPG_Assignment_1.Game.Functions;
 using RPG_Assignment_1.Game.Interfaces;
+using RPG_Assignment_1.Game.Items;
 
 namespace RPG_Assignment_1.Game.Character
 {
@@ -50,6 +51,21 @@ namespace RPG_Assignment_1.Game.Character
                 double dps = (1 * (1 + mainAttribute / Devider));
                 return attribute.AddDPS(dps);
             }
+        }
+
+        public ArmorLists SetArmorReq()
+        {
+            ArmorLists armorList = new ArmorLists();
+            armorList.ArmorReq.Add(ArmorTypes.Leather);
+            armorList.ArmorReq.Add(ArmorTypes.Mail);
+            return armorList;
+        }
+
+        public WeaponLists SetWeaponReq()
+        {
+            WeaponLists weaponList = new WeaponLists();
+            weaponList.WeaponReq.Add(WeaponTypes.Bow);
+            return weaponList;
         }
     }
 }

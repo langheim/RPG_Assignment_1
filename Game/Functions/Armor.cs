@@ -7,7 +7,7 @@ namespace RPG_Assignment_1.Game.Functions
     {
         public ArmorTypes ArmorTypes { get; set; }
         public PrimaryAttributes BasePrimaryAttributes { get; init; }
-        public Armor BaseArmorAttribute { get; set; }
+        public AvailableArmor AvailableArmor { get; set; }
 
         public Armor()
         {

@@ -2,6 +2,8 @@
 using RPG_Assignment_1.Game.Enums;
 using RPG_Assignment_1.Game.Functions;
 using RPG_Assignment_1.Game.Interfaces;
+using RPG_Assignment_1.Game.Items;
+using System.Linq;
 using System.Text;
 
 namespace RPG_Assignment_1.Game
@@ -12,11 +14,12 @@ namespace RPG_Assignment_1.Game
         public int Level { get; private set; } = 1;
         public HeroTypes HeroTypes { get; init; }
         public PrimaryAttributes BasePrimaryAttributes { get; private set; }
-        public SecondaryAttributes BaseSecondaryAttributes { get; set; }
-        public Armor BaseArmorAttribute { get; set; }
-        public Weapon BaseWeaponAttribute { get; set; }
+        public SecondaryAttributes BaseSecondaryAttributes { get; private set; }
+        public Armor BaseArmorAttribute { get; private set; }
+        public Weapon BaseWeaponAttribute { get; private set; }
+        public ArmorLists ArmorDirectory { get; private set; } = new ArmorLists();
+        public WeaponLists WeaponDirectory { get; private set; } = new WeaponLists();
         public ICreateHero HeroClass { get; init; }
-
         /// <summary>
         /// Main class for createing the Hero
         /// </summary>
@@ -30,6 +33,8 @@ namespace RPG_Assignment_1.Game
             HeroClass = heroClass;
             SetBaseAttributes();
             SetBaseSecondaryAttributes();
+            SetArmorReq();
+            SetWeaponReq();
             NewBaseArmorAttributes();
             NewBaseWeaponAttributes();
         }
@@ -46,6 +51,22 @@ namespace RPG_Assignment_1.Game
         private void SetBaseSecondaryAttributes()
         {
             BaseSecondaryAttributes = HeroClass.SetBaseSecondaryAttributes(BasePrimaryAttributes);
+        }
+        /// <summary>
+        /// Set Armor requirements for class
+        /// Maintained in the Character class
+        /// </summary>
+        private void SetArmorReq()
+        {
+            ArmorDirectory = HeroClass.SetArmorReq();
+        }
+        /// <summary>
+        /// Set Weapon requirements for character
+        /// Maintained in the Character class
+        /// </summary>
+        private void SetWeaponReq()
+        {
+            WeaponDirectory = HeroClass.SetWeaponReq();
         }
         /// <summary>
         /// Set Base Armor properties
@@ -86,144 +107,77 @@ namespace RPG_Assignment_1.Game
         }
         /// <summary>
         /// Adding new Armor to a hero
-        /// Hero.AddArmor takes parameterless constructor inputs and sets it to BaseArmorAttribute
+        /// Hero.AddArmor(AvailableArmor) from ENUM Items
         /// Send BaseArmorAttribute part of Hero to PrimaryAttributes
         /// Recalculates DPS
         /// Case: first check if required Level is met, then check if type is allowed on you class. Exception if not.
         /// </summary>
         /// <param name="armor"></param>
-        public void AddArmor(Armor armor)
+        public void AddArmor(AvailableArmor AvailableArmor)
         {
-            switch (HeroTypes)
+            foreach (var availArmor in from availArmor in ArmorDirectory.ArmorList
+                                     where availArmor.Key.AvailableArmor.Equals(AvailableArmor)
+                                     select new { availArmor.Key })
+
+            if (ArmorDirectory.ArmorReq.Contains(availArmor.Key.ArmorTypes))
             {
-                case HeroTypes.Mage:
-                    if (armor.ArmorTypes == ArmorTypes.Cloth)
+                foreach (var newArmor in from newArmor in ArmorDirectory.ArmorList
+                                         where newArmor.Key.AvailableArmor.Equals(AvailableArmor)
+                                         select new { newArmor.Key })
+
+                    if (newArmor.Key.RequiredLevel <= Level)
                     {
-                        if (armor.RequiredLevel <= Level)
-                        {
-                            BaseArmorAttribute = armor;
-                            BasePrimaryAttributes = armor.BasePrimaryAttributes.Add(BasePrimaryAttributes);
-                            BaseSecondaryAttributes = HeroClass.LevelUpSecAttributes(BasePrimaryAttributes);
-                            BasePrimaryAttributes = HeroClass.CalculateDps(BasePrimaryAttributes, BaseWeaponAttribute);
-                            break;
-                        }
-                        else
-                            throw new InvalidArmorException(message: $"You cannot use {armor.Name}, required level for {armor.Name} is {armor.RequiredLevel}");
-                    }
-                    else
-                        throw new InvalidArmorException(message: $"Your {HeroTypes} class cannot use Armor of type {armor.ArmorTypes}");
-                case HeroTypes.Ranger:
-                case HeroTypes.Rouge:
-                    if (armor.ArmorTypes == ArmorTypes.Leather || armor.ArmorTypes == ArmorTypes.Mail)
+                        BaseArmorAttribute = newArmor.Key;
+                        BasePrimaryAttributes = newArmor.Key.BasePrimaryAttributes.Add(BasePrimaryAttributes);
+                        BaseSecondaryAttributes = HeroClass.LevelUpSecAttributes(BasePrimaryAttributes);
+                        BasePrimaryAttributes = HeroClass.CalculateDps(BasePrimaryAttributes, BaseWeaponAttribute);
+                    }else
                     {
-                        if (armor.RequiredLevel <= Level)
-                        {
-                            BaseArmorAttribute = armor;
-                            BasePrimaryAttributes = armor.BasePrimaryAttributes.Add(BasePrimaryAttributes);
-                            BaseSecondaryAttributes = HeroClass.LevelUpSecAttributes(BasePrimaryAttributes);
-                            BasePrimaryAttributes = HeroClass.CalculateDps(BasePrimaryAttributes, BaseWeaponAttribute);
-                            break;
-                        }
-                        else
-                            throw new InvalidArmorException(message: $"You cannot use {armor.Name}, required level for {armor.Name} is {armor.RequiredLevel}");
+                        throw new InvalidArmorException(message: $"You cannot use this armor! Required level for this armor is {newArmor.Key.RequiredLevel}");
                     }
-                    else
-                        throw new InvalidArmorException(message: $"Your {HeroTypes} class cannot use Armor of type {armor.ArmorTypes}");
-                case HeroTypes.Warrior:
-                    if (armor.ArmorTypes == ArmorTypes.Mail || armor.ArmorTypes == ArmorTypes.Plate)
-                    {
-                        if (armor.RequiredLevel <= Level)
-                        {
-                            BaseArmorAttribute = armor;
-                            BasePrimaryAttributes = armor.BasePrimaryAttributes.Add(BasePrimaryAttributes);
-                            BaseSecondaryAttributes = HeroClass.LevelUpSecAttributes(BasePrimaryAttributes);
-                            BasePrimaryAttributes = HeroClass.CalculateDps(BasePrimaryAttributes, BaseWeaponAttribute);
-                            break;
-                        }
-                        else
-                            throw new InvalidArmorException(message: $"You cannot use {armor.Name}, required level for {armor.Name} is {armor.RequiredLevel}");
-                    }
-                    else
-                        throw new InvalidArmorException(message: $"Your {HeroTypes} class cannot use Armor of type {armor.ArmorTypes}");
-                default:
-                    throw new InvalidArmorException(message: $"You are not able to use the armor named: {armor.Name} ");
+            }else
+            {
+                throw new InvalidArmorException(message: $"Your class cannot use this type of armor");
             }
 
             System.Console.WriteLine("New Armour equipded!");
         }
         /// <summary>
         /// Adding new Armor to a hero
-        /// Hero.AddWeapon takes parameterless constructor inputs as input and sets it to BaseWeaponAttribute
+        /// Hero.AddWeapon (WeaponType, AvailableWeapon)  
         /// Recalculates DPS
         /// Case: first check if required Level is met, then check if type is allowed on you class. Exception if not.
         /// </summary>
         /// <param name="weapon"></param>
-        public void AddWeapon(Weapon weapon)
+        public void AddWeapon(AvailableWeapon AvailableWeapon)
         {
-            switch (HeroTypes)
-            {
-                case HeroTypes.Mage:
-                    if (weapon.WeaponTypes == WeaponTypes.Staff || weapon.WeaponTypes == WeaponTypes.Wand)
-                    {
-                        if (weapon.RequiredLevel <= Level)
-                        {
-                            BaseWeaponAttribute = weapon;
-                            BasePrimaryAttributes = HeroClass.CalculateDps(BasePrimaryAttributes, BaseWeaponAttribute);
-                            break;
-                        }
-                        else
-                            throw new InvalidWeaponException(message: $"You cannot use {weapon.Name}, required level for {weapon.Name} is {weapon.RequiredLevel}");
-                    }
-                    else
-                        throw new InvalidWeaponException(message: $"Your {HeroTypes} class cannot use the weapon {weapon.WeaponTypes}");
-                case HeroTypes.Ranger:
-                    if (weapon.WeaponTypes == WeaponTypes.Bow)
-                    {
-                        if (weapon.RequiredLevel <= Level)
-                        {
-                            BaseWeaponAttribute = weapon;
-                            BasePrimaryAttributes = HeroClass.CalculateDps(BasePrimaryAttributes, BaseWeaponAttribute);
-                            break;
-                        }
-                        else
-                            throw new InvalidWeaponException(message: $"You cannot use {weapon.Name}, required level for {weapon.Name} is {weapon.RequiredLevel}");
-                    }
-                    else
-                        throw new InvalidWeaponException(message: $"Your {HeroTypes} class cannot use the weapon {weapon.WeaponTypes}");
-                case HeroTypes.Rouge:
-                    if (weapon.WeaponTypes == WeaponTypes.Dagger || weapon.WeaponTypes == WeaponTypes.Sword)
-                    {
-                        if (weapon.RequiredLevel <= Level)
-                        {
-                            BaseWeaponAttribute = weapon;
-                            BasePrimaryAttributes = HeroClass.CalculateDps(BasePrimaryAttributes, BaseWeaponAttribute);
-                            break;
-                        }
-                        else
-                            throw new InvalidWeaponException(message: $"You cannot use {weapon.Name}, required level for {weapon.Name} is {weapon.RequiredLevel}");
-                    }
-                    else
-                        throw new InvalidWeaponException(message: $"Your {HeroTypes} class cannot use the weapon {weapon.WeaponTypes}");
-                case HeroTypes.Warrior:
-                    if (weapon.WeaponTypes == WeaponTypes.Axe || weapon.WeaponTypes == WeaponTypes.Hammer || weapon.WeaponTypes == WeaponTypes.Sword)
-                    {
-                        if (weapon.RequiredLevel <= Level)
-                        {
-                            BaseWeaponAttribute = weapon;
-                            BasePrimaryAttributes = HeroClass.CalculateDps(BasePrimaryAttributes, BaseWeaponAttribute);
-                            break;
-                        }
-                        else
-                            throw new InvalidWeaponException(message: $"You cannot use {weapon.Name}, required level for {weapon.Name} is {weapon.RequiredLevel}");
-                    }
-                    else
-                        throw new InvalidWeaponException(message: $"Your {HeroTypes} class cannot use the weapon {weapon.WeaponTypes}");
-                default:
-                    throw new InvalidWeaponException(message: $"You are not able to use the weapon named: {weapon.Name} ");
-            }
+            foreach (var availWeapon in from availWeapon in WeaponDirectory.WeaponList
+                                      where availWeapon.Key.AvailableWeapon.Equals(AvailableWeapon)
+                                      select new { availWeapon.Key })
 
-            System.Console.WriteLine("New Weapon equipded!");
-        }
+                if (WeaponDirectory.WeaponReq.Contains(availWeapon.Key.WeaponTypes))
+                {
+                foreach (var newWeapon in from newWeapon in WeaponDirectory.WeaponList
+                                         where newWeapon.Key.AvailableWeapon.Equals(AvailableWeapon)
+                                         select new { newWeapon.Key })
+
+                    if (newWeapon.Key.RequiredLevel <= Level)
+                    {
+                        BaseWeaponAttribute = newWeapon.Key;
+                        BasePrimaryAttributes = HeroClass.CalculateDps(BasePrimaryAttributes, BaseWeaponAttribute);
+                    }
+                    else
+                    {
+                        throw new InvalidArmorException(message: $"You cannot use this Weapon! Required level for this Weapon is {newWeapon.Key.RequiredLevel}");
+                    }
+                }
+                else
+                {
+                    throw new InvalidArmorException(message: $"Your class cannot use this type of weapon");
+                }
+
+               System.Console.WriteLine("New Weapon equipded!");
+            }
         /// <summary>
         /// Show a string representation of the Hero stats
         /// </summary>

@@ -1,9 +1,7 @@
 using RPG_Assignment_1;
 using RPG_Assignment_1.Game;
-using RPG_Assignment_1.Game.Attributes;
 using RPG_Assignment_1.Game.Character;
 using RPG_Assignment_1.Game.Enums;
-using RPG_Assignment_1.Game.Functions;
 using System;
 using System.IO;
 using Xunit;
@@ -23,14 +21,7 @@ namespace RPGAssignment_1Tests
             //Act & Assert
             Assert.Throws<InvalidWeaponException>(() =>
 
-            Hero.AddWeapon(new Weapon()
-            {
-                Name = "Common axe",
-                RequiredLevel = 2,
-                SlotTypes = SlotTypes.Weapon,
-                WeaponTypes = WeaponTypes.Axe,
-                WeaponAttributes = new WeaponAttributes { Damage = 7, AttackSpeed = 1.1 }
-            }));
+            Hero.AddWeapon(AvailableWeapon.GreatSword_Level5));
 
         }
 
@@ -43,14 +34,7 @@ namespace RPGAssignment_1Tests
             //Act & Assert
             Assert.Throws<InvalidArmorException>(() =>
 
-            Hero.AddArmor(new Armor()
-            {
-                Name = "Common mail body armor",
-                RequiredLevel = 2,
-                SlotTypes = SlotTypes.Body,
-                ArmorTypes = ArmorTypes.Mail,
-                BasePrimaryAttributes = new PrimaryAttributes { Vitality = 4, Strength = 4 }
-            }));
+            Hero.AddArmor(AvailableArmor.Plate_Level4));
         }
 
         [Fact]
@@ -62,14 +46,7 @@ namespace RPGAssignment_1Tests
             //Act & Assert
             Assert.Throws<InvalidWeaponException>(() =>
 
-            Hero.AddWeapon(new Weapon()
-            {
-                Name = "Common Bow",
-                RequiredLevel = 1,
-                SlotTypes = SlotTypes.Weapon,
-                WeaponTypes = WeaponTypes.Bow,
-                WeaponAttributes = new WeaponAttributes { Damage = 7, AttackSpeed = 1.1 }
-            }));
+            Hero.AddWeapon(AvailableWeapon.Bow_Level1));
 
         }
 
@@ -82,14 +59,7 @@ namespace RPGAssignment_1Tests
             //Act & Assert
             Assert.Throws<InvalidArmorException>(() =>
 
-            Hero.AddArmor(new Armor()
-            {
-                Name = "Common mail body armor",
-                RequiredLevel = 2,
-                SlotTypes = SlotTypes.Body,
-                ArmorTypes = ArmorTypes.Mail,
-                BasePrimaryAttributes = new PrimaryAttributes { Vitality = 4, Strength = 4 }
-            }));
+            Hero.AddArmor(AvailableArmor.ClothHead_Level1));
         }
 
         [Fact]
@@ -102,14 +72,7 @@ namespace RPGAssignment_1Tests
             CreateHero Hero = new CreateHero("Padawan", HeroTypes.Warrior, new Warrior());
 
             //Act & Assert
-            Hero.AddWeapon(new Weapon()
-            {
-                Name = "Common Bow",
-                RequiredLevel = 1,
-                SlotTypes = SlotTypes.Weapon,
-                WeaponTypes = WeaponTypes.Sword,
-                WeaponAttributes = new WeaponAttributes { Damage = 7, AttackSpeed = 1.1 }
-            });
+            Hero.AddWeapon(AvailableWeapon.Hammer_Level1);
 
             var output = stringWriter.ToString();
             Assert.Equal($"New Weapon equipped!\r\n", output); ;
@@ -126,13 +89,7 @@ namespace RPGAssignment_1Tests
             CreateHero Hero = new CreateHero("Padawan", HeroTypes.Warrior, new Warrior());
 
             //Act & Assert
-            Hero.AddArmor(new Armor()
-            {
-                Name = "Common Armor",
-                RequiredLevel = 1,
-                SlotTypes = SlotTypes.Body,
-                ArmorTypes = ArmorTypes.Plate,
-            });
+            Hero.AddArmor(AvailableArmor.PlateBody_Level1);
 
             var output = stringWriter.ToString();
             Assert.Equal($"New Armour equipded!\r\n", output); ;
@@ -167,14 +124,8 @@ namespace RPGAssignment_1Tests
             CreateHero Hero = new CreateHero("Padawan", HeroTypes.Warrior, new Warrior());
 
             //Act & Assert
-            Hero.AddWeapon(new Weapon()
-            {
-                Name = "Common Axe",
-                RequiredLevel = 1,
-                SlotTypes = SlotTypes.Weapon,
-                WeaponTypes = WeaponTypes.Axe,
-                WeaponAttributes = new WeaponAttributes { Damage = 7, AttackSpeed = 1.1 }
-            });
+            Hero.AddWeapon(AvailableWeapon.Axe_Level1);
+
             var DPS = (Hero.BasePrimaryAttributes.DPS).ToString();
 
             var output = stringWriter.ToString();
@@ -193,26 +144,13 @@ namespace RPGAssignment_1Tests
             CreateHero Hero = new CreateHero("Padawan", HeroTypes.Warrior, new Warrior());
 
             //Act & Assert
-            Hero.AddWeapon(new Weapon()
-            {
-                Name = "Common Axe",
-                RequiredLevel = 1,
-                SlotTypes = SlotTypes.Weapon,
-                WeaponTypes = WeaponTypes.Axe,
-                WeaponAttributes = new WeaponAttributes { Damage = 7, AttackSpeed = 1.1 }
-            });
-            Hero.AddArmor(new Armor()
-            {
-                Name = "Common Armor",
-                RequiredLevel = 1,
-                SlotTypes = SlotTypes.Body,
-                ArmorTypes = ArmorTypes.Plate,
-            });
+            Hero.AddWeapon(AvailableWeapon.Axe_Level1);
+            Hero.AddArmor(AvailableArmor.PlateBody_Level1);
 
             var DPS = (Hero.BasePrimaryAttributes.DPS).ToString();
 
             var output = stringWriter.ToString();
-            double calculation = 8.085;
+            double calculation = 8.624000000000002;
 
             Assert.Equal(calculation.ToString(), DPS); ;
 

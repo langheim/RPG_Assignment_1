@@ -1,10 +1,21 @@
 ﻿using RPG_Assignment_1.Game.Attributes;
 using RPG_Assignment_1.Game.Functions;
+using RPG_Assignment_1.Game.Items;
 
 namespace RPG_Assignment_1.Game.Interfaces
 {
     public interface ICreateHero
     {
+        /// <summary>
+        /// Set requirements for what Weapon the class can use
+        /// </summary>
+        /// <returns></returns>
+        WeaponLists SetWeaponReq();
+        /// <summary>
+        /// Set requirements for what Armor the class can use
+        /// </summary>
+        /// <returns></returns>
+        ArmorLists SetArmorReq();
         /// <summary>
         /// Set primary attributes for Hero
         /// </summary>
@@ -45,6 +56,5 @@ namespace RPG_Assignment_1.Game.Interfaces
         /// </summary>
         /// <returns>dps</returns>
         PrimaryAttributes CalculateDps(PrimaryAttributes attribute, Weapon BaseWeaponAttribute);
-
     }
 }
