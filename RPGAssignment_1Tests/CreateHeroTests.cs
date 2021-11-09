@@ -75,7 +75,7 @@ namespace RPGAssignment_1Tests
             Hero.AddWeapon(AvailableWeapon.Hammer_Level1);
 
             var output = stringWriter.ToString();
-            Assert.Equal($"New Weapon equipped!\r\n", output); ;
+            Assert.Equal($"New Weapon equipped!\r\n", output);
 
         }
 
@@ -92,7 +92,7 @@ namespace RPGAssignment_1Tests
             Hero.AddArmor(AvailableArmor.PlateBody_Level1);
 
             var output = stringWriter.ToString();
-            Assert.Equal($"New Armour equipded!\r\n", output); ;
+            Assert.Equal($"New Armour equipded!\r\n", output);
 
         }
 
@@ -111,7 +111,7 @@ namespace RPGAssignment_1Tests
             var output = stringWriter.ToString();
             double calculation = 1 * (1 + (5 / 100));
 
-            Assert.Equal(calculation.ToString(), DPS); ;
+            Assert.Equal(calculation.ToString(), DPS);
 
         }
         [Fact]
@@ -131,7 +131,7 @@ namespace RPGAssignment_1Tests
             var output = stringWriter.ToString();
             double calculation = 8.085;
 
-            Assert.Equal(calculation.ToString(), DPS); ;
+            Assert.Equal(calculation.ToString(), DPS);
 
         }
         [Fact]
@@ -152,8 +152,7 @@ namespace RPGAssignment_1Tests
             var output = stringWriter.ToString();
             double calculation = 8.624000000000002;
 
-            Assert.Equal(calculation.ToString(), DPS); ;
-
+            Assert.Equal(calculation.ToString(), DPS);
         }
     }
 }

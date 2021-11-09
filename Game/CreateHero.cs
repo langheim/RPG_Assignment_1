@@ -145,7 +145,7 @@ namespace RPG_Assignment_1.Game
             System.Console.WriteLine("New Armour equipded!");
         }
         /// <summary>
-        /// Adding new Armor to a hero
+        /// Adding new Weapon to a hero
         /// Hero.AddWeapon (WeaponType, AvailableWeapon)  
         /// Recalculates DPS
         /// Case: first check if required Level is met, then check if type is allowed on you class. Exception if not.
@@ -170,12 +170,12 @@ namespace RPG_Assignment_1.Game
                         }
                         else
                         {
-                            throw new InvalidArmorException(message: $"You cannot use this Weapon! Required level for this Weapon is {newWeapon.Key.RequiredLevel}");
+                            throw new InvalidWeaponException(message: $"You cannot use this Weapon! Required level for this Weapon is {newWeapon.Key.RequiredLevel}");
                         }
                 }
                 else
                 {
-                    throw new InvalidArmorException(message: $"Your class cannot use this type of weapon");
+                    throw new InvalidWeaponException(message: $"Your class cannot use this type of weapon");
                 }
 
             System.Console.WriteLine("New Weapon equipded!");
