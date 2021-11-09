@@ -10,7 +10,7 @@ namespace RPG_Assignment_1
     {
         static void Main(string[] args)
         {
-           
+
             CreateHero Hero = new CreateHero("Padawan", HeroTypes.Warrior, new Warrior());
             Console.WriteLine($"Here is your Hero named {Hero.Name}! Your stats before leveling up are:");
             Console.WriteLine();
@@ -29,7 +29,7 @@ namespace RPG_Assignment_1
             Console.WriteLine(Hero.ToString());
             Console.WriteLine();
             Console.WriteLine("Level up Character");
-            Console.ReadLine();            
+            Console.ReadLine();
             Hero.LevelUp(1);
             Console.Clear();
             Console.WriteLine(Hero.ToString());

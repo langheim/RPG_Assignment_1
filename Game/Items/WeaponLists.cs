@@ -19,7 +19,7 @@ namespace RPG_Assignment_1.Game.Items
             WeaponTypes = WeaponTypes.Axe,
             WeaponAttributes = new WeaponAttributes { Damage = 7, AttackSpeed = 1.1 },
             AvailableWeapon = AvailableWeapon.Axe_Level1
-    };
+        };
         public Weapon Staff_Level1 { get; set; } = new Weapon()
         {
             Name = "Common Staff",

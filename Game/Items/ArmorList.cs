@@ -8,8 +8,8 @@ namespace RPG_Assignment_1
     public class ArmorLists
     {
         public Dictionary<Armor, ArmorTypes> ArmorList = new();
-        public List<ArmorTypes> ArmorReq = new(); 
-        
+        public List<ArmorTypes> ArmorReq = new();
+
         public Armor ClothHead_Level1 { get; set; } = new Armor()
         {
             Name = "Common cloth head armor",
@@ -28,7 +28,7 @@ namespace RPG_Assignment_1
             BasePrimaryAttributes = new PrimaryAttributes { Vitality = 2, Inteligence = 3 },
             AvailableArmor = AvailableArmor.ClothBody_Level3
         };
-        
+
         public Armor PlateBody_Level1 { get; set; } = new Armor()
         {
             Name = "Plate body armor",
@@ -88,7 +88,7 @@ namespace RPG_Assignment_1
         public ArmorLists()
         {
             //Add objects to Items ENUM for easy access in AddArmor command
-            
+
             ArmorList.Add(ClothHead_Level1, ArmorTypes.Cloth);
             ArmorList.Add(ClothBody_Level3, ArmorTypes.Cloth);
             ArmorList.Add(PlateBody_Level1, ArmorTypes.Plate);

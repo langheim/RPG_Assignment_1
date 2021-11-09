@@ -116,29 +116,31 @@ namespace RPG_Assignment_1.Game
         public void AddArmor(AvailableArmor AvailableArmor)
         {
             foreach (var availArmor in from availArmor in ArmorDirectory.ArmorList
-                                     where availArmor.Key.AvailableArmor.Equals(AvailableArmor)
-                                     select new { availArmor.Key })
+                                       where availArmor.Key.AvailableArmor.Equals(AvailableArmor)
+                                       select new { availArmor.Key })
 
-            if (ArmorDirectory.ArmorReq.Contains(availArmor.Key.ArmorTypes))
-            {
-                foreach (var newArmor in from newArmor in ArmorDirectory.ArmorList
-                                         where newArmor.Key.AvailableArmor.Equals(AvailableArmor)
-                                         select new { newArmor.Key })
+                if (ArmorDirectory.ArmorReq.Contains(availArmor.Key.ArmorTypes))
+                {
+                    foreach (var newArmor in from newArmor in ArmorDirectory.ArmorList
+                                             where newArmor.Key.AvailableArmor.Equals(AvailableArmor)
+                                             select new { newArmor.Key })
 
-                    if (newArmor.Key.RequiredLevel <= Level)
-                    {
-                        BaseArmorAttribute = newArmor.Key;
-                        BasePrimaryAttributes = newArmor.Key.BasePrimaryAttributes.Add(BasePrimaryAttributes);
-                        BaseSecondaryAttributes = HeroClass.LevelUpSecAttributes(BasePrimaryAttributes);
-                        BasePrimaryAttributes = HeroClass.CalculateDps(BasePrimaryAttributes, BaseWeaponAttribute);
-                    }else
-                    {
-                        throw new InvalidArmorException(message: $"You cannot use this armor! Required level for this armor is {newArmor.Key.RequiredLevel}");
-                    }
-            }else
-            {
-                throw new InvalidArmorException(message: $"Your class cannot use this type of armor");
-            }
+                        if (newArmor.Key.RequiredLevel <= Level)
+                        {
+                            BaseArmorAttribute = newArmor.Key;
+                            BasePrimaryAttributes = newArmor.Key.BasePrimaryAttributes.Add(BasePrimaryAttributes);
+                            BaseSecondaryAttributes = HeroClass.LevelUpSecAttributes(BasePrimaryAttributes);
+                            BasePrimaryAttributes = HeroClass.CalculateDps(BasePrimaryAttributes, BaseWeaponAttribute);
+                        }
+                        else
+                        {
+                            throw new InvalidArmorException(message: $"You cannot use this armor! Required level for this armor is {newArmor.Key.RequiredLevel}");
+                        }
+                }
+                else
+                {
+                    throw new InvalidArmorException(message: $"Your class cannot use this type of armor");
+                }
 
             System.Console.WriteLine("New Armour equipded!");
         }
@@ -152,32 +154,32 @@ namespace RPG_Assignment_1.Game
         public void AddWeapon(AvailableWeapon AvailableWeapon)
         {
             foreach (var availWeapon in from availWeapon in WeaponDirectory.WeaponList
-                                      where availWeapon.Key.AvailableWeapon.Equals(AvailableWeapon)
-                                      select new { availWeapon.Key })
+                                        where availWeapon.Key.AvailableWeapon.Equals(AvailableWeapon)
+                                        select new { availWeapon.Key })
 
                 if (WeaponDirectory.WeaponReq.Contains(availWeapon.Key.WeaponTypes))
                 {
-                foreach (var newWeapon in from newWeapon in WeaponDirectory.WeaponList
-                                         where newWeapon.Key.AvailableWeapon.Equals(AvailableWeapon)
-                                         select new { newWeapon.Key })
+                    foreach (var newWeapon in from newWeapon in WeaponDirectory.WeaponList
+                                              where newWeapon.Key.AvailableWeapon.Equals(AvailableWeapon)
+                                              select new { newWeapon.Key })
 
-                    if (newWeapon.Key.RequiredLevel <= Level)
-                    {
-                        BaseWeaponAttribute = newWeapon.Key;
-                        BasePrimaryAttributes = HeroClass.CalculateDps(BasePrimaryAttributes, BaseWeaponAttribute);
-                    }
-                    else
-                    {
-                        throw new InvalidArmorException(message: $"You cannot use this Weapon! Required level for this Weapon is {newWeapon.Key.RequiredLevel}");
-                    }
+                        if (newWeapon.Key.RequiredLevel <= Level)
+                        {
+                            BaseWeaponAttribute = newWeapon.Key;
+                            BasePrimaryAttributes = HeroClass.CalculateDps(BasePrimaryAttributes, BaseWeaponAttribute);
+                        }
+                        else
+                        {
+                            throw new InvalidArmorException(message: $"You cannot use this Weapon! Required level for this Weapon is {newWeapon.Key.RequiredLevel}");
+                        }
                 }
                 else
                 {
                     throw new InvalidArmorException(message: $"Your class cannot use this type of weapon");
                 }
 
-               System.Console.WriteLine("New Weapon equipded!");
-            }
+            System.Console.WriteLine("New Weapon equipded!");
+        }
         /// <summary>
         /// Show a string representation of the Hero stats
         /// </summary>
